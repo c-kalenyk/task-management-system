@@ -12,7 +12,7 @@ import lombok.Setter;
 @Entity
 @Getter
 @Setter
-@Table(name = "comments")
+@Table(name = "labels")
 public class Label {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
