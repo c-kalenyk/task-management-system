@@ -1,0 +1,41 @@
+databaseChangeLog:
+  - changeSet:
+      id: create-attachments-table
+      author: oleksandr
+      changes:
+        - createTable:
+            tableName: attachments
+            columns:
+              - column:
+                  name: id
+                  type: bigint
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: task_id
+                  type: bigint
+                  constraints:
+                    nullable: false
+              - column:
+                  name: dropbox_file_id
+                  type: varchar(255)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: filename
+                  type: varchar(255)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: upload_date
+                  type: timestamp
+                  constraints:
+                    nullable: false
+        - addForeignKeyConstraint:
+            baseColumnNames: task_id
+            baseTableName: attachments
+            constraintName: fk_attachments_tasks
+            referencedTableName: tasks
+            referencedColumnNames: id

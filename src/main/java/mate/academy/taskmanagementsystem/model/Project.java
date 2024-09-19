@@ -7,8 +7,13 @@ import jakarta.persistence.Enumerated;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.JoinTable;
+import jakarta.persistence.ManyToMany;
 import jakarta.persistence.Table;
 import java.time.LocalDate;
+import java.util.HashSet;
+import java.util.Set;
 import lombok.Getter;
 import lombok.Setter;
 import org.hibernate.annotations.SQLDelete;
@@ -26,6 +31,7 @@ public class Project {
     private Long id;
     @Column(nullable = false)
     private String name;
+    @Column(nullable = false)
     private String description;
     @Column(nullable = false)
     private LocalDate startDate;
@@ -36,6 +42,13 @@ public class Project {
     private Status status;
     @Column(nullable = false)
     private boolean isDeleted;
+    @ManyToMany
+    @JoinTable(
+            name = "projects_users",
+            joinColumns = @JoinColumn(name = "project_id"),
+            inverseJoinColumns = @JoinColumn(name = "user_id")
+    )
+    private Set<User> users = new HashSet<>();
 
     public enum Status {
         INITIATED,
