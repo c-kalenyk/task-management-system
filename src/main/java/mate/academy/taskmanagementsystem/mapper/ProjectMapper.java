@@ -1,5 +1,6 @@
 package mate.academy.taskmanagementsystem.mapper;
 
+import java.util.Collection;
 import java.util.Set;
 import mate.academy.taskmanagementsystem.config.MapperConfig;
 import mate.academy.taskmanagementsystem.dto.project.CreateProjectRequestDto;
@@ -14,7 +15,7 @@ public interface ProjectMapper {
 
     Project toModel(CreateProjectRequestDto createProjectRequestDto);
 
-    Set<ProjectDto> toDtoSet(Set<Project> projects);
+    Set<ProjectDto> toDtoSet(Collection<Project> projects);
 
     default Project updateProject(Project existingProject, UpdateProjectRequestDto requestDto) {
         existingProject.setName(requestDto.getName());

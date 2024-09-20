@@ -1,8 +1,9 @@
 package mate.academy.taskmanagementsystem.repository.project;
 
 import java.util.Optional;
-import java.util.Set;
 import mate.academy.taskmanagementsystem.model.Project;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.EntityGraph;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
@@ -12,7 +13,7 @@ import org.springframework.data.repository.query.Param;
 public interface ProjectRepository extends JpaRepository<Project, Long> {
     @Query("SELECT p FROM Project p LEFT JOIN FETCH p.users u "
             + "LEFT JOIN FETCH u.roles WHERE u.id = :userId")
-    Set<Project> findAllByUserId(@Param("userId") Long userId);
+    Page<Project> findAllByUserId(@Param("userId") Long userId, Pageable pageable);
 
     @EntityGraph(attributePaths = "users.roles")
     Optional<Project> findById(Long id);
