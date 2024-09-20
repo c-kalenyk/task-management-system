@@ -15,6 +15,7 @@ import mate.academy.taskmanagementsystem.model.User;
 import mate.academy.taskmanagementsystem.repository.project.ProjectRepository;
 import mate.academy.taskmanagementsystem.repository.user.UserRepository;
 import mate.academy.taskmanagementsystem.service.ProjectService;
+import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -38,7 +39,8 @@ public class ProjectServiceImpl implements ProjectService {
 
     @Override
     public Set<ProjectDto> getAllProjects(Long userId, Pageable pageable) {
-        return projectMapper.toDtoSet(projectRepository.findAllByUserId(userId));
+        Page<Project> projectsPage = projectRepository.findAllByUserId(userId, pageable);
+        return projectMapper.toDtoSet(projectsPage.getContent());
     }
 
     @Override
