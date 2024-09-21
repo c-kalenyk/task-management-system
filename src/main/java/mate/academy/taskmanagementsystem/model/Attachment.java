@@ -29,5 +29,5 @@ public class Attachment {
     @Column(nullable = false)
     private String filename;
     @Column(nullable = false)
-    private LocalDateTime uploadDate;
+    private LocalDateTime uploadDate = LocalDateTime.now();
 }
