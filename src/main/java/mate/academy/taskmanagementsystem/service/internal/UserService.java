@@ -1,4 +1,4 @@
-package mate.academy.taskmanagementsystem.service;
+package mate.academy.taskmanagementsystem.service.internal;
 
 import mate.academy.taskmanagementsystem.dto.user.UserRegistrationRequestDto;
 import mate.academy.taskmanagementsystem.dto.user.UserResponseDto;

@@ -1,4 +1,4 @@
-package mate.academy.taskmanagementsystem.service.impl;
+package mate.academy.taskmanagementsystem.service.internal.impl;
 
 import java.util.List;
 import lombok.RequiredArgsConstructor;
@@ -7,7 +7,7 @@ import mate.academy.taskmanagementsystem.exception.EntityNotFoundException;
 import mate.academy.taskmanagementsystem.mapper.LabelMapper;
 import mate.academy.taskmanagementsystem.model.Label;
 import mate.academy.taskmanagementsystem.repository.label.LabelRepository;
-import mate.academy.taskmanagementsystem.service.LabelService;
+import mate.academy.taskmanagementsystem.service.internal.LabelService;
 import org.springframework.stereotype.Service;
 
 @Service

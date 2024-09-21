@@ -1,4 +1,4 @@
-package mate.academy.taskmanagementsystem.service;
+package mate.academy.taskmanagementsystem.service.external;
 
 import com.dropbox.core.DbxRequestConfig;
 import com.dropbox.core.v2.DbxClientV2;
@@ -9,11 +9,11 @@ import java.io.InputStream;
 import org.springframework.stereotype.Component;
 
 @Component
-public class DropboxClient {
+public class DropboxService {
     private static final String APP_NAME = "task-management-system-of-c-kalenyk";
     private final DbxClientV2 client;
 
-    public DropboxClient(Dotenv dotenv) {
+    public DropboxService(Dotenv dotenv) {
         String accessToken = dotenv.get("DROPBOX_API_TOKEN");
         DbxRequestConfig config = DbxRequestConfig.newBuilder(APP_NAME).build();
         client = new DbxClientV2(config, accessToken);

@@ -1,4 +1,4 @@
-package mate.academy.taskmanagementsystem.service.impl;
+package mate.academy.taskmanagementsystem.service.internal.impl;
 
 import java.util.Set;
 import lombok.RequiredArgsConstructor;
@@ -13,7 +13,7 @@ import mate.academy.taskmanagementsystem.model.Role;
 import mate.academy.taskmanagementsystem.model.User;
 import mate.academy.taskmanagementsystem.repository.role.RoleRepository;
 import mate.academy.taskmanagementsystem.repository.user.UserRepository;
-import mate.academy.taskmanagementsystem.service.UserService;
+import mate.academy.taskmanagementsystem.service.internal.UserService;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 

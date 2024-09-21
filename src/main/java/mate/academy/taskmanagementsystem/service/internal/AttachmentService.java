@@ -1,4 +1,4 @@
-package mate.academy.taskmanagementsystem.service;
+package mate.academy.taskmanagementsystem.service.internal;
 
 import java.io.InputStream;
 import java.util.List;

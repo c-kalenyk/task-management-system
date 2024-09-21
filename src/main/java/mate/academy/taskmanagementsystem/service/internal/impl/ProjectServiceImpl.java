@@ -1,4 +1,4 @@
-package mate.academy.taskmanagementsystem.service.impl;
+package mate.academy.taskmanagementsystem.service.internal.impl;
 
 import jakarta.persistence.EntityExistsException;
 import java.util.Set;
@@ -14,7 +14,7 @@ import mate.academy.taskmanagementsystem.model.Project;
 import mate.academy.taskmanagementsystem.model.User;
 import mate.academy.taskmanagementsystem.repository.project.ProjectRepository;
 import mate.academy.taskmanagementsystem.repository.user.UserRepository;
-import mate.academy.taskmanagementsystem.service.ProjectService;
+import mate.academy.taskmanagementsystem.service.internal.ProjectService;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;

@@ -1,5 +1,7 @@
 package mate.academy.taskmanagementsystem.repository.project;
 
+import java.time.LocalDate;
+import java.util.List;
 import java.util.Optional;
 import mate.academy.taskmanagementsystem.model.Project;
 import org.springframework.data.domain.Page;
@@ -14,6 +16,9 @@ public interface ProjectRepository extends JpaRepository<Project, Long> {
     @Query("SELECT p FROM Project p LEFT JOIN FETCH p.users u "
             + "LEFT JOIN FETCH u.roles WHERE u.id = :userId")
     Page<Project> findAllByUserId(@Param("userId") Long userId, Pageable pageable);
+
+    @EntityGraph(attributePaths = "users.roles")
+    List<Project> findAllByEndDate(LocalDate endDate);
 
     @EntityGraph(attributePaths = "users.roles")
     Optional<Project> findById(Long id);

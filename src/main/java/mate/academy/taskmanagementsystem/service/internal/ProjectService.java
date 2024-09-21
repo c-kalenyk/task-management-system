@@ -1,4 +1,4 @@
-package mate.academy.taskmanagementsystem.service;
+package mate.academy.taskmanagementsystem.service.internal;
 
 import java.util.Set;
 import mate.academy.taskmanagementsystem.dto.project.CreateProjectRequestDto;

@@ -5,7 +5,7 @@ import io.swagger.v3.oas.annotations.tags.Tag;
 import java.util.List;
 import lombok.RequiredArgsConstructor;
 import mate.academy.taskmanagementsystem.dto.attachment.AttachmentDto;
-import mate.academy.taskmanagementsystem.service.AttachmentService;
+import mate.academy.taskmanagementsystem.service.internal.AttachmentService;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;

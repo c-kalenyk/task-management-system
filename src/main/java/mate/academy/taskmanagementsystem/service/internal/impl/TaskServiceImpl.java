@@ -1,4 +1,4 @@
-package mate.academy.taskmanagementsystem.service.impl;
+package mate.academy.taskmanagementsystem.service.internal.impl;
 
 import java.util.List;
 import lombok.RequiredArgsConstructor;
@@ -12,7 +12,7 @@ import mate.academy.taskmanagementsystem.model.User;
 import mate.academy.taskmanagementsystem.repository.project.ProjectRepository;
 import mate.academy.taskmanagementsystem.repository.task.TaskRepository;
 import mate.academy.taskmanagementsystem.repository.user.UserRepository;
-import mate.academy.taskmanagementsystem.service.TaskService;
+import mate.academy.taskmanagementsystem.service.internal.TaskService;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;

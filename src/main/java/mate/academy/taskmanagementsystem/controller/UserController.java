@@ -8,7 +8,7 @@ import mate.academy.taskmanagementsystem.dto.user.UserRegistrationRequestDto;
 import mate.academy.taskmanagementsystem.dto.user.UserResponseDto;
 import mate.academy.taskmanagementsystem.dto.user.UserRoleUpdateRequestDto;
 import mate.academy.taskmanagementsystem.model.User;
-import mate.academy.taskmanagementsystem.service.UserService;
+import mate.academy.taskmanagementsystem.service.internal.UserService;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.core.Authentication;
 import org.springframework.web.bind.annotation.GetMapping;
