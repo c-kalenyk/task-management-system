@@ -10,7 +10,7 @@ import mate.academy.taskmanagementsystem.dto.user.UserRegistrationRequestDto;
 import mate.academy.taskmanagementsystem.dto.user.UserResponseDto;
 import mate.academy.taskmanagementsystem.exception.RegistrationException;
 import mate.academy.taskmanagementsystem.security.AuthenticationService;
-import mate.academy.taskmanagementsystem.service.UserService;
+import mate.academy.taskmanagementsystem.service.internal.UserService;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;

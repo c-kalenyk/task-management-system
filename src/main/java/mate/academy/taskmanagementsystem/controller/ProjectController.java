@@ -11,7 +11,7 @@ import mate.academy.taskmanagementsystem.dto.project.ProjectUserAssignmentReques
 import mate.academy.taskmanagementsystem.dto.project.UpdateProjectRequestDto;
 import mate.academy.taskmanagementsystem.dto.project.UpdateProjectStatusRequestDto;
 import mate.academy.taskmanagementsystem.model.User;
-import mate.academy.taskmanagementsystem.service.ProjectService;
+import mate.academy.taskmanagementsystem.service.internal.ProjectService;
 import org.springdoc.core.annotations.ParameterObject;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.web.PageableDefault;

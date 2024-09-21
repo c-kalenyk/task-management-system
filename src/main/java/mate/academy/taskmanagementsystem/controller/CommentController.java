@@ -8,7 +8,7 @@ import lombok.RequiredArgsConstructor;
 import mate.academy.taskmanagementsystem.dto.comment.CommentDto;
 import mate.academy.taskmanagementsystem.dto.comment.CreateCommentRequestDto;
 import mate.academy.taskmanagementsystem.model.User;
-import mate.academy.taskmanagementsystem.service.CommentService;
+import mate.academy.taskmanagementsystem.service.internal.CommentService;
 import org.springdoc.core.annotations.ParameterObject;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.web.PageableDefault;

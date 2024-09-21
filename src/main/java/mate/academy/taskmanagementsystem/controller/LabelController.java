@@ -7,7 +7,7 @@ import java.util.List;
 import lombok.RequiredArgsConstructor;
 import mate.academy.taskmanagementsystem.dto.label.LabelRequestDto;
 import mate.academy.taskmanagementsystem.model.Label;
-import mate.academy.taskmanagementsystem.service.LabelService;
+import mate.academy.taskmanagementsystem.service.internal.LabelService;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;

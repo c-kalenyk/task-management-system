@@ -7,7 +7,7 @@ import java.util.List;
 import lombok.RequiredArgsConstructor;
 import mate.academy.taskmanagementsystem.dto.task.TaskDto;
 import mate.academy.taskmanagementsystem.dto.task.TaskRequestDto;
-import mate.academy.taskmanagementsystem.service.TaskService;
+import mate.academy.taskmanagementsystem.service.internal.TaskService;
 import org.springdoc.core.annotations.ParameterObject;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.web.PageableDefault;

@@ -20,4 +20,9 @@ jobs:
         run: echo "DROPBOX_API_TOKEN=${{ secrets.DROPBOX_API_TOKEN }}" >> $GITHUB_ENV
 
       - name: Build with Maven
+        env:
+          SPRING_MAIL_USERNAME: ${{ secrets.SPRING_MAIL_USERNAME }}
+          SPRING_MAIL_PASSWORD: ${{ secrets.SPRING_MAIL_PASSWORD }}
+          JWT_SECRET: ${{ secrets.JWT_SECRET }}
+          JWT_EXPIRATION: ${{ secrets.JWT_EXPIRATION }}
         run: mvn --batch-mode --update-snapshots verify
