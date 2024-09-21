@@ -15,4 +15,6 @@ jobs:
           distribution: 'adopt'
           cache: maven
       - name: Build with Maven
+        env:
+          DROPBOX_API_TOKEN: ${{ secrets.DROPBOX_API_TOKEN }}
         run: mvn --batch-mode --update-snapshots verify
