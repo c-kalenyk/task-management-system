@@ -5,6 +5,7 @@ import java.util.Set;
 import lombok.RequiredArgsConstructor;
 import mate.academy.taskmanagementsystem.dto.project.CreateProjectRequestDto;
 import mate.academy.taskmanagementsystem.dto.project.ProjectDto;
+import mate.academy.taskmanagementsystem.dto.project.ProjectSearchParameters;
 import mate.academy.taskmanagementsystem.dto.project.ProjectUserAssignmentRequestDto;
 import mate.academy.taskmanagementsystem.dto.project.UpdateProjectRequestDto;
 import mate.academy.taskmanagementsystem.dto.project.UpdateProjectStatusRequestDto;
@@ -13,10 +14,12 @@ import mate.academy.taskmanagementsystem.mapper.ProjectMapper;
 import mate.academy.taskmanagementsystem.model.Project;
 import mate.academy.taskmanagementsystem.model.User;
 import mate.academy.taskmanagementsystem.repository.project.ProjectRepository;
+import mate.academy.taskmanagementsystem.repository.project.ProjectSpecificationBuilder;
 import mate.academy.taskmanagementsystem.repository.user.UserRepository;
 import mate.academy.taskmanagementsystem.service.internal.ProjectService;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
+import org.springframework.data.jpa.domain.Specification;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -26,6 +29,7 @@ public class ProjectServiceImpl implements ProjectService {
     private final ProjectRepository projectRepository;
     private final ProjectMapper projectMapper;
     private final UserRepository userRepository;
+    private final ProjectSpecificationBuilder projectSpecificationBuilder;
 
     @Override
     public ProjectDto create(Long userId, CreateProjectRequestDto requestDto) {
@@ -40,6 +44,14 @@ public class ProjectServiceImpl implements ProjectService {
     @Override
     public Set<ProjectDto> getAllProjects(Long userId, Pageable pageable) {
         Page<Project> projectsPage = projectRepository.findAllByUserId(userId, pageable);
+        return projectMapper.toDtoSet(projectsPage.getContent());
+    }
+
+    @Override
+    public Set<ProjectDto> search(ProjectSearchParameters searchParameters, Pageable pageable) {
+        Specification<Project> projectSpecification = projectSpecificationBuilder
+                .build(searchParameters);
+        Page<Project> projectsPage = projectRepository.findAll(projectSpecification, pageable);
         return projectMapper.toDtoSet(projectsPage.getContent());
     }
 

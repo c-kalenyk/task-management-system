@@ -7,6 +7,7 @@ import java.util.Set;
 import lombok.RequiredArgsConstructor;
 import mate.academy.taskmanagementsystem.dto.project.CreateProjectRequestDto;
 import mate.academy.taskmanagementsystem.dto.project.ProjectDto;
+import mate.academy.taskmanagementsystem.dto.project.ProjectSearchParameters;
 import mate.academy.taskmanagementsystem.dto.project.ProjectUserAssignmentRequestDto;
 import mate.academy.taskmanagementsystem.dto.project.UpdateProjectRequestDto;
 import mate.academy.taskmanagementsystem.dto.project.UpdateProjectStatusRequestDto;
@@ -51,6 +52,14 @@ public class ProjectController {
                                           @ParameterObject @PageableDefault Pageable pageable) {
         User user = (User) authentication.getPrincipal();
         return projectService.getAllProjects(user.getId(), pageable);
+    }
+
+    @Operation(summary = "Search for specific projects",
+            description = "Search for specific projects by required criteria")
+    @GetMapping("/search")
+    public Set<ProjectDto> searchProjects(ProjectSearchParameters searchParameters,
+                                          @ParameterObject @PageableDefault Pageable pageable) {
+        return projectService.search(searchParameters, pageable);
     }
 
     @Operation(summary = "Get project", description = "Retrieve project details")

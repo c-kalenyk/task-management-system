@@ -7,6 +7,7 @@ import java.util.List;
 import lombok.RequiredArgsConstructor;
 import mate.academy.taskmanagementsystem.dto.task.TaskDto;
 import mate.academy.taskmanagementsystem.dto.task.TaskRequestDto;
+import mate.academy.taskmanagementsystem.dto.task.TaskSearchParameters;
 import mate.academy.taskmanagementsystem.service.internal.TaskService;
 import org.springdoc.core.annotations.ParameterObject;
 import org.springframework.data.domain.Pageable;
@@ -42,6 +43,14 @@ public class TaskController {
     public List<TaskDto> getAllTasks(@PathVariable Long projectId,
                                      @ParameterObject @PageableDefault Pageable pageable) {
         return taskService.getAllTasks(projectId, pageable);
+    }
+
+    @Operation(summary = "Search for specific tasks",
+            description = "Search for specific tasks by required criteria")
+    @GetMapping("/search")
+    public List<TaskDto> searchProjects(TaskSearchParameters searchParameters,
+                                        @ParameterObject @PageableDefault Pageable pageable) {
+        return taskService.search(searchParameters, pageable);
     }
 
     @Operation(summary = "Get task", description = "Retrieve task details")
