@@ -3,6 +3,7 @@ package mate.academy.taskmanagementsystem.service.internal;
 import java.util.Set;
 import mate.academy.taskmanagementsystem.dto.project.CreateProjectRequestDto;
 import mate.academy.taskmanagementsystem.dto.project.ProjectDto;
+import mate.academy.taskmanagementsystem.dto.project.ProjectSearchParameters;
 import mate.academy.taskmanagementsystem.dto.project.ProjectUserAssignmentRequestDto;
 import mate.academy.taskmanagementsystem.dto.project.UpdateProjectRequestDto;
 import mate.academy.taskmanagementsystem.dto.project.UpdateProjectStatusRequestDto;
@@ -12,6 +13,8 @@ public interface ProjectService {
     ProjectDto create(Long userId, CreateProjectRequestDto requestDto);
 
     Set<ProjectDto> getAllProjects(Long userId, Pageable pageable);
+
+    Set<ProjectDto> search(ProjectSearchParameters searchParameters, Pageable pageable);
 
     ProjectDto get(Long id);
 

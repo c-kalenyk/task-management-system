@@ -4,6 +4,7 @@ import java.util.List;
 import lombok.RequiredArgsConstructor;
 import mate.academy.taskmanagementsystem.dto.task.TaskDto;
 import mate.academy.taskmanagementsystem.dto.task.TaskRequestDto;
+import mate.academy.taskmanagementsystem.dto.task.TaskSearchParameters;
 import mate.academy.taskmanagementsystem.exception.EntityNotFoundException;
 import mate.academy.taskmanagementsystem.mapper.TaskMapper;
 import mate.academy.taskmanagementsystem.model.Project;
@@ -11,10 +12,12 @@ import mate.academy.taskmanagementsystem.model.Task;
 import mate.academy.taskmanagementsystem.model.User;
 import mate.academy.taskmanagementsystem.repository.project.ProjectRepository;
 import mate.academy.taskmanagementsystem.repository.task.TaskRepository;
+import mate.academy.taskmanagementsystem.repository.task.TaskSpecificationBuilder;
 import mate.academy.taskmanagementsystem.repository.user.UserRepository;
 import mate.academy.taskmanagementsystem.service.internal.TaskService;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
+import org.springframework.data.jpa.domain.Specification;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -24,6 +27,7 @@ public class TaskServiceImpl implements TaskService {
     private final TaskMapper taskMapper;
     private final ProjectRepository projectRepository;
     private final UserRepository userRepository;
+    private final TaskSpecificationBuilder taskSpecificationBuilder;
 
     @Override
     public TaskDto create(TaskRequestDto requestDto) {
@@ -45,6 +49,13 @@ public class TaskServiceImpl implements TaskService {
     @Override
     public List<TaskDto> getAllTasks(Long projectId, Pageable pageable) {
         Page<Task> tasksPage = taskRepository.findAllByProjectId(projectId, pageable);
+        return taskMapper.toDtoList(tasksPage.getContent());
+    }
+
+    @Override
+    public List<TaskDto> search(TaskSearchParameters searchParameters, Pageable pageable) {
+        Specification<Task> taskSpecification = taskSpecificationBuilder.build(searchParameters);
+        Page<Task> tasksPage = taskRepository.findAll(taskSpecification, pageable);
         return taskMapper.toDtoList(tasksPage.getContent());
     }
 
