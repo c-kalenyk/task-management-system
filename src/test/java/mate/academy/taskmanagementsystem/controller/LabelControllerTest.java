@@ -11,9 +11,9 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.put;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
 import java.util.Arrays;
 import java.util.List;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import mate.academy.taskmanagementsystem.config.GlobalSetupExtension;
 import mate.academy.taskmanagementsystem.dto.label.LabelRequestDto;
 import mate.academy.taskmanagementsystem.model.Label;
