@@ -204,8 +204,9 @@ public class UserServiceTest {
     }
 
     @Test
-    @DisplayName("Verify that exception is thrown when calling update() method"
-            + " with username which already exists")
+    @DisplayName("""
+            Verify that exception is thrown when calling update() method
+            with username which already exists""")
     public void update_WithInvalidRequestDto_ShouldThrowException() {
         //Given
         User existingUser = createTestUser();

@@ -69,8 +69,8 @@ public class UserControllerTest {
         UserResponseDto expected = createTestUserResponseDto(user);
         //When
         MvcResult result = mockMvc.perform(
-                        get("/users/me")
-                                .contentType(MediaType.APPLICATION_JSON)
+                get("/users/me")
+                .contentType(MediaType.APPLICATION_JSON)
                 )
                 .andExpect(status().isOk())
                 .andReturn();
@@ -108,9 +108,9 @@ public class UserControllerTest {
         String jsonRequest = objectMapper.writeValueAsString(requestDto);
         //When
         MvcResult result = mockMvc.perform(
-                        put("/users/me")
-                                .content(jsonRequest)
-                                .contentType(MediaType.APPLICATION_JSON)
+                put("/users/me")
+                .content(jsonRequest)
+                .contentType(MediaType.APPLICATION_JSON)
                 )
                 .andExpect(status().isOk())
                 .andReturn();

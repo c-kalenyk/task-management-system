@@ -4,7 +4,6 @@ import java.util.LinkedHashSet;
 import java.util.Set;
 import mate.academy.taskmanagementsystem.dto.user.UserRegistrationRequestDto;
 import mate.academy.taskmanagementsystem.dto.user.UserResponseDto;
-import mate.academy.taskmanagementsystem.dto.user.UserRoleUpdateRequestDto;
 import mate.academy.taskmanagementsystem.model.Role;
 import mate.academy.taskmanagementsystem.model.User;
 
@@ -56,16 +55,22 @@ public class UserTestUtil {
         return role;
     }
 
-    public static UserRoleUpdateRequestDto createTestUserRoleUpdateRequestDto() {
-        UserRoleUpdateRequestDto requestDto = new UserRoleUpdateRequestDto();
-        requestDto.setRole(Role.RoleName.ROLE_USER);
-        return requestDto;
+    public static User createAdditionalTestUser() {
+        User user = new User();
+        user.setId(2L);
+        user.setUsername("alice");
+        user.setPassword("aliceter");
+        user.setEmail("alice@example.test");
+        user.setFirstName("Alice");
+        user.setLastName("User");
+        user.setRoles(Set.of(createUserRole()));
+        return user;
     }
 
-    public static Set<Role> createTestUserRoleSet() {
-        Set<Role> roles = new LinkedHashSet<>();
-        roles.add(createAdminRole());
-        roles.add(createUserRole());
-        return roles;
+    public static Set<User> createTestUsersSet() {
+        Set<User> users = new LinkedHashSet<>();
+        users.add(createTestUser());
+        users.add(createAdditionalTestUser());
+        return users;
     }
 }

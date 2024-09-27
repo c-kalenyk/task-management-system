@@ -114,7 +114,7 @@ public class LabelControllerTest {
 
     @Test
     @WithMockUser(username = "user")
-    @DisplayName("Get label by id")
+    @DisplayName("Update label by id")
     @Sql(scripts = {
             "classpath:database/labels/add-one-label.sql"
     },
