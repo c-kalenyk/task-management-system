@@ -48,7 +48,7 @@ public class TaskController {
     @Operation(summary = "Search for specific tasks",
             description = "Search for specific tasks by required criteria")
     @GetMapping("/search")
-    public List<TaskDto> searchProjects(TaskSearchParameters searchParameters,
+    public List<TaskDto> searchTasks(TaskSearchParameters searchParameters,
                                         @ParameterObject @PageableDefault Pageable pageable) {
         return taskService.search(searchParameters, pageable);
     }
