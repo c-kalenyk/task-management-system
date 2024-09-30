@@ -28,13 +28,11 @@ public class LabelServiceImpl implements LabelService {
 
     @Override
     public Label update(Long id, LabelRequestDto requestDto) {
-        if (labelRepository.existsById(id)) {
-            Label label = labelMapper.toModel(requestDto);
-            label.setId(id);
-            return labelRepository.save(label);
-        } else {
-            throw new EntityNotFoundException("Can't find label by id " + id);
-        }
+        Label label = labelRepository.findById(id).orElseThrow(() ->
+                new EntityNotFoundException("Can't find label by id: " + id));
+        label.setName(requestDto.getName());
+        label.setColor(requestDto.getColor());
+        return labelRepository.save(label);
     }
 
     @Override

@@ -10,6 +10,7 @@ import org.springframework.scheduling.annotation.EnableScheduling;
 public class TaskManagementSystemApplication {
     public static void main(String[] args) {
         Dotenv dotenv = Dotenv.configure().load();
+        System.setProperty("MYSQL_ROOT_PASSWORD", dotenv.get("MYSQL_ROOT_PASSWORD"));
         System.setProperty("SPRING_MAIL_USERNAME", dotenv.get("SPRING_MAIL_USERNAME"));
         System.setProperty("SPRING_MAIL_PASSWORD", dotenv.get("SPRING_MAIL_PASSWORD"));
         System.setProperty("JWT_SECRET", dotenv.get("JWT_SECRET"));
