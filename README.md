@@ -32,7 +32,7 @@ This helps users stay focused on their work without needing to jot things down o
 
 1. Clone repo.
 2. Install and run Docker.
-3. Create a Dropbox account, create dropbox app and generate access token.
+3. Create a Dropbox account, create dropbox app and generate access token ([Guide](https://developers.dropbox.com/oauth-guide)).
 4. Configure access parameters in the `.env` file (refer to the required fields in the `.env.sample` file).
 5. Open a terminal and navigate to the root directory of the project on your machine.
 6. Run the application using Docker Compose: `docker-compose up`
